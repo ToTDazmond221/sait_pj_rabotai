@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Post</title>
+</head>
+<body>
+    <h1>Post</h1>
+    <p>{{ post['content'] }}</p>
+
+    <h2>ответы</h2>
+    <ul>
+        {% for comment in post['comments'] %}
+            <li>{{ comment['content'] }}</li>
+        {% endfor %}
+    </ul>
+    <h3>добавить ответ</h3>
+    <form method="POST" action="/post/{{ post_id }}">
+        <textarea name="content" rows="3" cols="30" placeholder="напишите свой вопрос?"></textarea><br>
+        <input type="submit" value="добавить пост">
+    </form>
+</body>
+</html>
